@@ -1,14 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .Inter {
+            font-family: "Inter", sans-serif;
+        }
+
+        .Anton {
+            font-family: "Anton", sans-serif;
+        }
+    </style>
+
 </head>
-<body>
 
+<body class="min-h-screen bg-[#010313]"
+    style="background-image: url('./images/background.png');background-repeat: no-repeat;background-position: center;">
+    <main class="">
+        <section id="home" class="min-h-screen text-Anton flex items-center justify-center gap-10">
+            <div class="flex flex-col items-center">
+                <h1 class="text-[170px] font-normal text-white">ALPHABET CLASH</h1>
+                <p class="text-white font-normal">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+                <button onclick="play()" class="btn">Play Now</button>
+            </div>
+        </section>
+        <section id="playground" class=" hidden">
+            <div
+                class="mx-auto artboard artboard-horizontal phone-6 border-[20px]  rounded-2xl border-[#010313CC] border-opacity-[80%] bg-[#FFFFFFB3] bg-opacity-[70%]">
+                <div class="flex justify-center">
+                    <p class="bg-[#2F2941] text-white px-7 pb-4 rounded-t-none rounded-r-xl rounded-b-xl rounded-l-xl">
+                        Don't watch keyboard while playing...</p>
+                </div>
+                <div class="flex justify-center items-center h-full">
+                    <p id="currentAlphabet" class="text-black text-9xl font-bold uppercase">Y</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="flex justify-center gap-1 my-1 w-full mt-5">
+                        <kbd id="q" class="kbd">q</kbd>
+                        <kbd id="w" class="kbd">w</kbd>
+                        <kbd id="e" class="kbd">e</kbd>
+                        <kbd id="t" class="kbd">t</kbd>
+                        <kbd id="y" class="kbd">y</kbd>
+                        <kbd id="u" class="kbd">u</kbd>
+                        <kbd id="i" class="kbd">i</kbd>
+                        <kbd id="o" class="kbd">o</kbd>
+                        <kbd id="p" class="kbd">p</kbd>
+                    </div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="a" class="kbd">a</kbd>
+                        <kbd id="s" class="kbd">s</kbd>
+                        <kbd id="d" class="kbd">d</kbd>
+                        <kbd id="f" class="kbd">f</kbd>
+                        <kbd id="g" class="kbd">g</kbd>
+                        <kbd id="h" class="kbd">h</kbd>
+                        <kbd id="j" class="kbd">j</kbd>
+                        <kbd id="k" class="kbd">k</kbd>
+                        <kbd id="l" class="kbd">l</kbd>
+                    </div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="z" class="kbd">z</kbd>
+                        <kbd id="x" class="kbd">x</kbd>
+                        <kbd id="c" class="kbd">c</kbd>
+                        <kbd id="v" class="kbd">v</kbd>
+                        <kbd id="b" class="kbd">b</kbd>
+                        <kbd id="m" class="kbd">m</kbd>
+                        <kbd id="n" class="kbd">n</kbd>
+                        <kbd id="/" class="kbd">/</kbd>
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <button class="btn bg-[#894189] text-white border-none rounded-[30px]">
+                            Life<img src="images/Group 23.svg"> <span id="currentLife">5</span>
+                        </button>
+                        <button class="btn bg-[#360490] text-white border-none rounded-[30px]">
+                            Score <img src="images/Group 23 (1).svg"><span id="current-score">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-    
+        </section>
+        <section id="finalScore" class=" flex justify-center text-center min-h-screen items-center hidden">
+            <div class="bg-[#FFFFFF33] bg-opacity-[20%] px-12 py-10 rounded-2xl">
+                <h1 class="text-8xl text-white">
+                    <span class="font-bold">Score :</span><span id="game-score" class="font-bold">0</span>
+                </h1>
+                <button onclick="play()" class="text-black bg-white btn mt-4 mb-4">Play Now</button>
+                <p class="text-white">Practice will make you Pro</p>
+            </div>
+        </section>
+    </main>
     <script src="js/script.js"></script>
 </body>
+
 </html>
